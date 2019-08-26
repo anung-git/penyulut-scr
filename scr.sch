@@ -16191,11 +16191,11 @@ W = angled&lt;p&gt;
 <part name="SV2" library="con-lstb" deviceset="MA04-1" device=""/>
 <part name="R26" library="rcl" deviceset="R-EU_" device="0207/2V"/>
 <part name="R12" library="rcl" deviceset="R-EU_" device="0207/2V"/>
-<part name="R11" library="rcl" deviceset="R-EU_" device="0207/2V"/>
 <part name="R8" library="rcl" deviceset="R-EU_" device="0207/10" value="10k"/>
 <part name="R10" library="rcl" deviceset="R-EU_" device="0207/2V"/>
 <part name="R2" library="rcl" deviceset="R-EU_" device="0207/2V"/>
 <part name="R18" library="rcl" deviceset="R-EU_" device="0207/2V"/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="0207/10" value="1k"/>
 </parts>
 <sheets>
 <sheet>
@@ -16310,11 +16310,11 @@ W = angled&lt;p&gt;
 <instance part="SV2" gate="1" x="-35.56" y="55.88" rot="R270"/>
 <instance part="R26" gate="G$1" x="111.76" y="-160.02"/>
 <instance part="R12" gate="G$1" x="121.92" y="-63.5"/>
-<instance part="R11" gate="G$1" x="91.44" y="-160.02"/>
 <instance part="R8" gate="G$1" x="96.52" y="-147.32" rot="MR180"/>
 <instance part="R10" gate="G$1" x="109.22" y="-119.38"/>
 <instance part="R2" gate="G$1" x="30.48" y="-10.16" rot="R90"/>
 <instance part="R18" gate="G$1" x="38.1" y="-5.08"/>
+<instance part="R11" gate="G$1" x="91.44" y="-160.02" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -16725,7 +16725,7 @@ W = angled&lt;p&gt;
 <pinref part="IC3" gate="A" pin="-IN"/>
 <wire x1="109.22" y1="-152.4" x2="101.6" y2="-152.4" width="0.1524" layer="91"/>
 <pinref part="R26" gate="G$1" pin="1"/>
-<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="R11" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$12" class="0">
@@ -16808,7 +16808,7 @@ W = angled&lt;p&gt;
 <segment>
 <wire x1="86.36" y1="-160.02" x2="76.2" y2="-160.02" width="0.1524" layer="91"/>
 <label x="76.2" y="-160.02" size="1.778" layer="95" rot="R180" xref="yes"/>
-<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="R11" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$7" class="0">
