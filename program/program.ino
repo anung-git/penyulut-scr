@@ -3,16 +3,16 @@
 
 #define jumlahLubang    48
 
-#define gatePin 3
-#define encoderPin 4
+#define gatePin 4
+#define encoderPin 3
 #define potensio A0
-#define crossIn 3
+#define crossIn 2
 
 unsigned long previousMillis = 0;
 const long interval = 500; 
 int sudut;
 
-const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+const int rs = 13, en = 12, d4 = 11, d5 = 10, d6 = 9, d7 = 8;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 volatile int counterEncoder;
@@ -60,12 +60,12 @@ void loop(){
     lcd.print("SUDUT = ");
 
     int sensorValue = analogRead(potensio);
-    sensorValue = map(sensorValue, 0, 1023, 0, 180);
     if(sensorValue!=sudut){
+      Timer1.initialize(1+(sensorValue*10));
       sudut=sensorValue;
-      lcd.print(sudut);
-      Timer1.initialize(1+sudut);
+      sudut = map(sensorValue, 0, 1023, 0, 180);
     }
+    lcd.print(sudut);
   }
 
 }
