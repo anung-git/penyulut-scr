@@ -17,14 +17,13 @@ volatile int counterEncoder;
 
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-
 void interupsiEncoder(){
     counterEncoder++;
 }
 
-void GateOn(){
+//void GateOn(){
 //  Timer1.stop();
-}
+//}
 
 void interupsiPhaseCrossing(){
  // Timer1.restart();   //set our stopwatch to 0
@@ -75,5 +74,4 @@ void loop(){
     sudut = map(PotValue, 0, 1023, 0, 180);
     lcd.print(sudut);
   }
-
 }
