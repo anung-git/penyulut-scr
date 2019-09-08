@@ -5,7 +5,9 @@
 #define potensio A5
 #define crossIn 2
 #define probe 11
-#define PULSE 70   //trigger pulse width (counts)
+#define PULSE 4   //trigger pulse width (counts)
+
+int average [5];
 const int rs = 7, en = 6, d4 = 5, d5 = 10, d6 = 9, d7 = 8;
 
 unsigned long previousMillis = 0;
@@ -22,7 +24,7 @@ void interupsiEncoder(){
 
 void interupsiPhaseCrossing(){
   digitalWrite(gatePin,LOW);
-  digitalWrite(probe,LOW);
+  //digitalWrite(probe,LOW);
   TCCR1B=0x04; //start timer with divide by 256 input
   TCNT1 = 0;   //reset timer - count from zero 
 }
@@ -35,6 +37,7 @@ ISR(TIMER1_COMPA_vect){ //comparator match
 
 ISR(TIMER1_OVF_vect){ //timer1 overflow
   digitalWrite(probe,LOW); //turn off TRIAC gate
+  //digitalWrite(gatePin,LOW); //turn off TRIAC gate
   TCCR1B = 0x00;          //disable timer stopd unintended triggers
 }
 
@@ -59,17 +62,26 @@ void loop(){
     unsigned long currentMillis = millis();
     if (currentMillis - previousMillis >= interval) {
       previousMillis = currentMillis;
-      float RPM = counterEncoder * 2.5;//(counterEncoder/jumlahLubang)*(60000/interval);
+      for (byte i =0;i<4;i++){
+        average[i]=average[i+1];
+      }
+      average[4]=counterEncoder;
       counterEncoder=0;
+      int result=0;
+      for (byte i =0;i<5;i++){
+        result = result + average[i];
+      }      
+      float RPM = result/2;// average * 2.5;//(counterEncoder/jumlahLubang)*(60000/interval);
+      
       lcd.clear();
       lcd.setCursor(0, 1);
       lcd.print("RPM = ");
       lcd.print(RPM);
       PotValue = analogRead(potensio);
-      OCR1A =1 +( PotValue/1.6 );
-      sudut = map(PotValue, 0, 1000, 0, 180);
+      OCR1A =PotValue;//1 +( PotValue/1.5 );
+      //sudut = map(PotValue, 0, 1000, 0, 180);
       lcd.setCursor(0, 0);
       lcd.print("SUDUT = ");
-      lcd.print(sudut);
+      lcd.print(PotValue);
     }
 }
