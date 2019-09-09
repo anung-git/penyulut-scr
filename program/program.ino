@@ -57,6 +57,7 @@ void setup(){
   lcd.setCursor(0, 1);
   lcd.print("   YOGYAKARTA   ");
   lcd.clear();
+  delay(1);
 }
 void loop(){  
     unsigned long currentMillis = millis();
@@ -78,10 +79,13 @@ void loop(){
       lcd.print("RPM = ");
       lcd.print(RPM);
       PotValue = analogRead(potensio);
-      OCR1A =PotValue;//1 +( PotValue/1.5 );
-      //sudut = map(PotValue, 0, 1000, 0, 180);
+      OCR1A =30 +( PotValue/1.6 );
+      sudut = map(PotValue, 0, 1000, 0, 180);
       lcd.setCursor(0, 0);
       lcd.print("SUDUT = ");
-      lcd.print(PotValue);
+      lcd.print(sudut);
     }
 }
+
+//permission denied    sudo chmod a+rw /dev/ttyUSB0
+//sudo avrdude -c usbasp -P usb -p atmega328p -U flash:w:program.ino.standard.hex
