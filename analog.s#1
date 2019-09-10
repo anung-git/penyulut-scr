@@ -12669,75 +12669,6 @@ high speed (Philips)</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="v-reg">
-<description>&lt;b&gt;Voltage Regulators&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="78XXS">
-<description>&lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
-<wire x1="4.826" y1="-4.318" x2="5.08" y2="-4.064" width="0.1524" layer="21"/>
-<wire x1="4.826" y1="-4.318" x2="-4.826" y2="-4.318" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-4.064" x2="-4.826" y2="-4.318" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="-1.143" x2="5.08" y2="-4.064" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-4.064" x2="-5.08" y2="-1.143" width="0.1524" layer="21"/>
-<circle x="-4.6228" y="-3.7084" radius="0.254" width="0" layer="21"/>
-<pad name="IN" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="GND" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="OUT" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-0.635" y="-3.81" size="1.27" layer="51" ratio="10">-</text>
-<text x="-3.175" y="-3.81" size="1.27" layer="51" ratio="10">I</text>
-<text x="1.905" y="-3.81" size="1.27" layer="51" ratio="10">O</text>
-<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="0" layer="21"/>
-<rectangle x1="-3.429" y1="-0.762" x2="-1.651" y2="0" layer="21"/>
-<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="0" layer="21"/>
-<rectangle x1="-0.889" y1="-0.762" x2="0.889" y2="0" layer="21"/>
-<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="0" layer="21"/>
-<rectangle x1="1.651" y1="-0.762" x2="3.429" y2="0" layer="21"/>
-<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="0" layer="21"/>
-<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.762" layer="51"/>
-<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.762" layer="51"/>
-<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.762" layer="51"/>
-</package>
-</packages>
-<symbols>
-<symbol name="78XX">
-<wire x1="-5.08" y1="-5.08" x2="5.08" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="-5.08" x2="5.08" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="-5.08" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-5.08" width="0.4064" layer="94"/>
-<text x="2.54" y="-7.62" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-2.032" y="-4.318" size="1.524" layer="95">GND</text>
-<text x="-4.445" y="-0.635" size="1.524" layer="95">IN</text>
-<text x="0.635" y="-0.635" size="1.524" layer="95">OUT</text>
-<pin name="IN" x="-7.62" y="0" visible="off" length="short" direction="in"/>
-<pin name="GND" x="0" y="-7.62" visible="off" length="short" direction="in" rot="R90"/>
-<pin name="OUT" x="7.62" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="78XXS" prefix="IC" uservalue="yes">
-<description>&lt;b&gt;VOLTAGE REGULATOR&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="78XX" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="78XXS">
-<connects>
-<connect gate="1" pin="GND" pad="GND"/>
-<connect gate="1" pin="IN" pad="IN"/>
-<connect gate="1" pin="OUT" pad="OUT"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -12751,6 +12682,7 @@ high speed (Philips)</description>
 <part name="IC1" library="st-microelectronics" deviceset="NE555" device=""/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
+<part name="C1" library="rcl" deviceset="CPOL-EU" device="E5-8.5" value="2.2uF"/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0207/10" value="2k2"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="050-025X075" value="10n"/>
 <part name="OK1" library="optocoupler" deviceset="4N35" device=""/>
@@ -12779,17 +12711,6 @@ high speed (Philips)</description>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
-<part name="IC2" library="v-reg" deviceset="78XXS" device=""/>
-<part name="P+6" library="supply1" deviceset="+12V" device=""/>
-<part name="P+7" library="supply1" deviceset="VCC" device=""/>
-<part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="C6" library="rcl" deviceset="C-EU" device="050-025X075" value="10n"/>
-<part name="P+8" library="supply1" deviceset="VCC" device=""/>
-<part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="C7" library="rcl" deviceset="CPOL-EU" device="E2.5-5"/>
-<part name="C8" library="rcl" deviceset="CPOL-EU" device="E2.5-5"/>
-<part name="P+9" library="supply1" deviceset="VCC" device=""/>
-<part name="GND10" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12799,6 +12720,7 @@ high speed (Philips)</description>
 <instance part="IC1" gate="G$1" x="-109.22" y="5.08"/>
 <instance part="P+1" gate="VCC" x="-124.46" y="38.1"/>
 <instance part="GND1" gate="1" x="-93.98" y="-17.78"/>
+<instance part="C1" gate="G$1" x="-124.46" y="-10.16"/>
 <instance part="R1" gate="G$1" x="-172.72" y="10.16" rot="R90"/>
 <instance part="C2" gate="G$1" x="-91.44" y="-10.16" rot="R180"/>
 <instance part="OK1" gate="G$1" x="-160.02" y="2.54"/>
@@ -12827,17 +12749,6 @@ high speed (Philips)</description>
 <instance part="GND6" gate="1" x="-147.32" y="10.16"/>
 <instance part="GND7" gate="1" x="-170.18" y="-17.78"/>
 <instance part="P+5" gate="1" x="-147.32" y="35.56"/>
-<instance part="IC2" gate="1" x="-139.7" y="68.58"/>
-<instance part="P+6" gate="1" x="-152.4" y="78.74"/>
-<instance part="P+7" gate="VCC" x="-127" y="78.74"/>
-<instance part="GND8" gate="1" x="-139.7" y="53.34"/>
-<instance part="C6" gate="G$1" x="-119.38" y="58.42" rot="R180"/>
-<instance part="P+8" gate="VCC" x="-119.38" y="66.04"/>
-<instance part="GND9" gate="1" x="-119.38" y="53.34"/>
-<instance part="C7" gate="G$1" x="-106.68" y="60.96"/>
-<instance part="C8" gate="G$1" x="-124.46" y="-10.16"/>
-<instance part="P+9" gate="VCC" x="-106.68" y="66.04"/>
-<instance part="GND10" gate="1" x="-106.68" y="53.34"/>
 </instances>
 <busses>
 </busses>
@@ -12881,6 +12792,10 @@ high speed (Philips)</description>
 <junction x="-93.98" y="-15.24"/>
 </segment>
 <segment>
+<pinref part="C1" gate="G$1" pin="-"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+</segment>
+<segment>
 <pinref part="R2" gate="G$1" pin="1"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 </segment>
@@ -12903,27 +12818,11 @@ high speed (Philips)</description>
 <pinref part="GND7" gate="1" pin="GND"/>
 <wire x1="-170.18" y1="-15.24" x2="-170.18" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="IC2" gate="1" pin="GND"/>
-<pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="-139.7" y1="55.88" x2="-139.7" y2="60.96" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C6" gate="G$1" pin="1"/>
-<pinref part="GND9" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="GND2" gate="1" pin="GND"/>
-<pinref part="C8" gate="G$1" pin="-"/>
-</segment>
-<segment>
-<pinref part="C7" gate="G$1" pin="-"/>
-<pinref part="GND10" gate="1" pin="GND"/>
-</segment>
 </net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="DIS"/>
+<pinref part="C1" gate="G$1" pin="+"/>
 <wire x1="-119.38" y1="5.08" x2="-124.46" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="-124.46" y1="5.08" x2="-124.46" y2="-7.62" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="TRE"/>
@@ -12933,7 +12832,6 @@ high speed (Philips)</description>
 <wire x1="-124.46" y1="22.86" x2="-124.46" y2="12.7" width="0.1524" layer="91"/>
 <junction x="-124.46" y="12.7"/>
 <junction x="-124.46" y="5.08"/>
-<pinref part="C8" gate="G$1" pin="+"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -12961,20 +12859,6 @@ high speed (Philips)</description>
 <pinref part="Q1" gate="G$1" pin="C"/>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
 <wire x1="-55.88" y1="17.78" x2="-55.88" y2="10.16" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IC2" gate="1" pin="OUT"/>
-<pinref part="P+7" gate="VCC" pin="VCC"/>
-<wire x1="-127" y1="76.2" x2="-127" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="-127" y1="68.58" x2="-132.08" y2="68.58" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C6" gate="G$1" pin="2"/>
-<pinref part="P+8" gate="VCC" pin="VCC"/>
-</segment>
-<segment>
-<pinref part="C7" gate="G$1" pin="+"/>
-<pinref part="P+9" gate="VCC" pin="VCC"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -13041,24 +12925,6 @@ high speed (Philips)</description>
 <pinref part="P+5" gate="1" pin="+12V"/>
 <wire x1="-147.32" y1="33.02" x2="-147.32" y2="22.86" width="0.1524" layer="91"/>
 <junction x="-147.32" y="22.86"/>
-</segment>
-<segment>
-<pinref part="IC2" gate="1" pin="IN"/>
-<pinref part="P+6" gate="1" pin="+12V"/>
-<wire x1="-152.4" y1="76.2" x2="-152.4" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="-152.4" y1="68.58" x2="-147.32" y2="68.58" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="D2" gate="1" pin="A"/>
-<wire x1="-198.12" y1="22.86" x2="-203.2" y2="22.86" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="D3" gate="1" pin="A"/>
-<wire x1="-198.12" y1="17.78" x2="-203.2" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
