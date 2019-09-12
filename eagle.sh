@@ -1,0 +1,1 @@
+wine /media/anung/62CC3D68CC3D381D/EAGLE-7.4.0/bin/eagle.exe .
