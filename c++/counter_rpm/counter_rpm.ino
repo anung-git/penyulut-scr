@@ -73,7 +73,6 @@ void scan(unsigned int value){
   clrPin(com4); 
 }
 int main (void){
-  DDRB |= 0x20; //Set PB5 as output, ignore the rest
   #if defined(__AVR_ATmega8__)  
     TCCR0 = 0x05; // clock frequency / 1024 
     TCNT0 = 0; // Start to count from zero
