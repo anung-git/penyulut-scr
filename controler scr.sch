@@ -14417,6 +14417,7 @@ grid 2.54 mm</description>
 <part name="R6" library="rcl" deviceset="R-EU_" device="0207/10" value="100"/>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
+<part name="D5" library="diode" deviceset="1N4446" device="" value="1N4002"/>
 </parts>
 <sheets>
 <sheet>
@@ -14500,6 +14501,10 @@ grid 2.54 mm</description>
 <instance part="R6" gate="G$1" x="-35.56" y="-73.66" rot="R90"/>
 <instance part="P+7" gate="1" x="167.64" y="-20.32"/>
 <instance part="GND15" gate="1" x="236.22" y="22.86" rot="R270"/>
+<instance part="D5" gate="1" x="170.18" y="-43.18" smashed="yes">
+<attribute name="NAME" x="162.56" y="-40.1574" size="1.778" layer="95"/>
+<attribute name="VALUE" x="167.64" y="-40.4114" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -14637,6 +14642,10 @@ grid 2.54 mm</description>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="73.66" y1="86.36" x2="73.66" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
+<pinref part="IC1" gate="G$1" pin="AVCC"/>
+<wire x1="91.44" y1="60.96" x2="73.66" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="60.96" x2="73.66" y2="71.12" width="0.1524" layer="91"/>
+<junction x="73.66" y="71.12"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="1" pin="OUT"/>
@@ -14696,11 +14705,10 @@ grid 2.54 mm</description>
 <net name="N$9" class="0">
 <segment>
 <pinref part="OK1" gate="A" pin="EMIT"/>
-<pinref part="T2" gate="1" pin="G"/>
 <wire x1="162.56" y1="-43.18" x2="167.64" y2="-43.18" width="0.1524" layer="91"/>
 <pinref part="X2" gate="-2" pin="KL"/>
-<wire x1="167.64" y1="-43.18" x2="172.72" y2="-43.18" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="-53.34" x2="167.64" y2="-43.18" width="0.1524" layer="91"/>
+<pinref part="D5" gate="1" pin="A"/>
 <junction x="167.64" y="-43.18"/>
 </segment>
 </net>
@@ -14821,6 +14829,12 @@ grid 2.54 mm</description>
 <junction x="33.02" y="-99.06"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="X2" gate="-1" pin="KL"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="T2" gate="1" pin="G"/>
+<pinref part="D5" gate="1" pin="C"/>
 </segment>
 </net>
 </nets>
