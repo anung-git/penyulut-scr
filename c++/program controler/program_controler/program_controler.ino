@@ -1,6 +1,5 @@
-#include <LiquidCrystal.h>
 //#define jumlahLubang    48
-#define gatePin 7
+#define gatePin 4
 //#define encoderPin 3
 #define potensio A5
 #define crossIn 2
@@ -16,7 +15,6 @@
 
 
 int average [5];
-const int rs = 7, en = 6, d4 = 5, d5 = 10, d6 = 9, d7 = 8;
 
 unsigned long previousMillis = 0;
 const long interval = 500; 
@@ -46,7 +44,6 @@ void setup(){
   pinMode(gatePin, OUTPUT);
   pinMode(potensio, INPUT);
   pinMode(crossIn, INPUT);
-//  pinMode(encoderPin, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(crossIn), interupsiPhaseCrossing, FALLING);
   TIMSK1 =0x03;    //enable comparator A and overflow interrupts
   TCCR1A = 0x00;    //timer control registers set for
@@ -54,37 +51,9 @@ void setup(){
 }
 void loop(){  
       PotValue = analogRead(potensio);
-      OCR1A =1 + PotValue;
+      OCR1A =1 + (PotValue/1.6368);
       delay(10);
-//    unsigned long currentMillis = millis();
-//    if (currentMillis - previousMillis >= interval) {
-//      previousMillis = currentMillis;
-//      for (byte i =0;i<4;i++){
-//        average[i]=average[i+1];
-//      }
-//      average[4]=counterEncoder;
-//      counterEncoder=0;
-//      int result=0;
-//      for (byte i =0;i<5;i++){
-//        result = result + average[i];
-//      }      
-//      float RPM = result/2;// average * 2.5;//(counterEncoder/jumlahLubang)*(60000/interval);
-//      
-//      lcd.clear();
-//      lcd.setCursor(0, 1);
-//      lcd.print("RPM = ");
-//      lcd.print(RPM);
-//      sudut = map(PotValue, 0, 1000, 0, 180);
-//      lcd.setCursor(0, 0);
-//      lcd.print("SUDUT = ");
-//      lcd.print(sudut);
-//      Serial.print("rpm = ");
-//      Serial.println(RPM);
-//      Serial.print("sudut = ");
-//      Serial.println(sudut);
-//      Serial.print("ocr1a = ");
-//      Serial.println(OCR1A);
-//    }
+
 }
 //permission denied    sudo chmod a+rw /dev/ttyUSB0
 //sudo avrdude -c usbasp -P usb -p atmega328p -U flash:w:program.ino.standard.hex
